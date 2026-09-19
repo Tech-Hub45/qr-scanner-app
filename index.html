@@ -1,0 +1,1384 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Litescan - Free QR Code Scanner & Generator | PDF Tools | OCR</title>
+    <meta name="description" content="Litescan: Advanced QR code scanner, generator, and professional document conversion tools. Scan QR/barcodes, generate codes, convert PDFs, merge/split documents, OCR text extraction, image tools - all free and 100% client-side.">
+    <meta name="keywords" content="QR code scanner, QR code generator, barcode scanner, PDF converter, PDF merger, PDF splitter, OCR, image to PDF, document scanner, image to text, free online tools">
+    <meta name="author" content="Litescan">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="googlebot" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Litescan - Free QR Code Scanner & Generator with Pro Tools">
+    <meta property="og:description" content="Scan and generate QR codes, convert PDFs, merge documents, extract text with OCR. 100% free, client-side, no installation needed.">
+    <meta property="og:site_name" content="Litescan">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Litescan - QR Code Scanner & Professional Tools">
+    <meta name="twitter:description" content="Free online QR code scanner, generator, PDF tools, and document conversion. 100% client-side processing.">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="copyright" content="Litescan">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#00f0ff">
+    
+    <!-- Link Tags -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles/main.css">
+    
+    <!-- Canonical URL (update with your actual domain) -->
+    <link rel="canonical" href="https://litescan.app">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="pwa/manifest.json">
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Litescan">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%2300f0ff' width='180' height='180' rx='45'/><text x='50%' y='50%' font-size='90' font-weight='bold' fill='%23090d16' text-anchor='middle' dominant-baseline='middle'>LS</text></svg>">
+    
+    <!-- Core QR/Barcode Libraries -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js" defer></script>
+    
+    <!-- Pro Tools Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" defer></script>
+    <!-- Additional Conversion Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/pptxjs@0.7.0/dist/pptxjs.js" defer></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/docx@8.2.2/build/index.min.js" defer></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest" onload="lucide.createIcons()" defer></script>
+    
+    <!-- Structured Data / Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Litescan",
+        "description": "Advanced QR code scanner, generator, and professional document conversion tools",
+        "url": "https://litescan.app",
+        "applicationCategory": "UtilitiesApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Litescan"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "250"
+        }
+    }
+    </script>
+</head>
+<body class="dark-theme">
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <div class="app-container">
+        <!-- ═══════════════ HEADER ═══════════════ -->
+        <header class="app-header">
+            <div class="logo-area">
+                <div class="logo-icon-wrapper">
+                    <i data-lucide="qr-code" class="logo-icon"></i>
+                    <div class="logo-scan-line"></div>
+                </div>
+                <div>
+                    <h1>Lite<span class="accent-text">scan</span></h1>
+                    <p class="tagline">Scan · Generate · Convert &nbsp;•&nbsp; v2.0.0</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="installPWABtn" class="header-action-btn install-header-btn" title="Install App" aria-label="Install App" style="display:flex !important;">
+                    <span class="header-btn-icon"><i data-lucide="download-cloud"></i></span>
+                    <span class="header-btn-label">Install App</span>
+                </button>
+                <button id="themeToggle" class="header-action-btn" title="Toggle Theme" aria-label="Toggle Theme">
+                    <span class="header-btn-icon">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
+                    </span>
+                    <span class="header-btn-label sun-label">Light</span>
+                    <span class="header-btn-label moon-label">Dark</span>
+                </button>
+                <div class="more-menu-container">
+                    <button id="moreMenuBtn" class="header-action-btn" title="More Options" aria-label="More Options">
+                        <span class="header-btn-icon"><i data-lucide="more-vertical"></i></span>
+                        <span class="header-btn-label">More</span>
+                    </button>
+                    <div id="moreDropdown" class="dropdown-menu">
+                        <button class="dropdown-item" id="openSettingsBtn">
+                            <i data-lucide="settings"></i> Settings &amp; Preferences
+                        </button>
+                        <button class="dropdown-item" id="openAboutBtn">
+                            <i data-lucide="info"></i> About Litescan
+                        </button>
+                        <button class="dropdown-item" id="openLicenseBtn">
+                            <i data-lucide="file-text"></i> <strong>Open Source License</strong>
+                        </button>
+                        <button class="dropdown-item" id="openPrivacyBtn">
+                            <i data-lucide="shield"></i> Privacy Policy
+                        </button>
+                        <button class="dropdown-item" id="openTermsBtn">
+                            <i data-lucide="file-check"></i> Terms of Service
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ═══════════════ TABS ═══════════════ -->
+        <nav class="app-tabs">
+            <button class="tab-btn active" data-tab="camera-scan">
+                <i data-lucide="camera"></i><span>Scan</span>
+            </button>
+            <button class="tab-btn" data-tab="file-scan">
+                <i data-lucide="file-up"></i><span>Scan File</span>
+            </button>
+            <button class="tab-btn" data-tab="generate">
+                <i data-lucide="pencil-ruler"></i><span>Generate</span>
+            </button>
+            <button class="tab-btn" data-tab="history">
+                <i data-lucide="history"></i><span>History</span>
+                <span class="badge" id="historyBadge" style="display:none;">0</span>
+            </button>
+            <button class="tab-btn tools-tab-btn" data-tab="tools">
+                <i data-lucide="layout-grid"></i><span>Tools</span>
+            </button>
+            <button class="tab-btn install-tab-btn" id="navInstallBtn" style="display:none; color:var(--accent); font-weight:600;">
+                <i data-lucide="download-cloud"></i><span>Install App</span>
+            </button>
+        </nav>
+
+        <main class="app-content">
+            <!-- ─────────── TAB: Camera Scan ─────────── -->
+            <section id="camera-scan" class="tab-pane active">
+                <div class="scanner-wrapper">
+                    <div class="scanner-view-container">
+                        <div id="reader" class="scanner-element"></div>
+                        <div class="scanner-overlay">
+                            <div class="scanner-corner top-left"></div>
+                            <div class="scanner-corner top-right"></div>
+                            <div class="scanner-corner bottom-left"></div>
+                            <div class="scanner-corner bottom-right"></div>
+                            <div class="scanner-laser"></div>
+                        </div>
+                        <div class="scanner-placeholder">
+                            <i data-lucide="aperture" class="placeholder-icon rotating"></i>
+                            <p>Select a camera and tap <strong>Start Scanner</strong></p>
+                        </div>
+                    </div>
+                    <div class="scanner-controls card">
+                        <div class="form-group">
+                            <label for="cameraSelect">Select Camera</label>
+                            <div class="select-wrapper">
+                                <select id="cameraSelect"><option value="">Detecting cameras…</option></select>
+                                <i data-lucide="chevron-down" class="select-chevron"></i>
+                            </div>
+                        </div>
+                        <div class="form-group" id="zoomControlWrapper" style="display:none;">
+                            <div class="slider-header">
+                                <label for="scannerZoom">Camera Zoom</label>
+                                <span id="zoomValDisplay">1x</span>
+                            </div>
+                            <input type="range" id="scannerZoom" min="1" max="5" step="0.1" value="1">
+                        </div>
+                        <div class="scanner-btn-row">
+                            <button id="flipCameraBtn" class="flip-camera-btn" title="Switch Camera">
+                                <i data-lucide="switch-camera"></i> Flip Camera
+                            </button>
+                            <button id="startScanBtn" class="primary-btn">
+                                <i data-lucide="play"></i> Start Scanner
+                            </button>
+                            <button id="stopScanBtn" class="danger-btn" disabled>
+                                <i data-lucide="square"></i> Stop
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─────────── TAB: File Scan ─────────── -->
+            <section id="file-scan" class="tab-pane">
+                <div class="file-uploader-card card">
+                    <div class="drop-zone" id="dropZone">
+                        <input type="file" id="qrFileInput" accept="image/*" class="file-input">
+                        <div class="drop-zone-prompt">
+                            <i data-lucide="upload-cloud" class="upload-icon"></i>
+                            <h3>Drag &amp; drop image here</h3>
+                            <p>or click to browse from device</p>
+                            <span class="file-limits">Supports QR codes and Barcodes · Max 5 MB</span>
+                        </div>
+                        <div class="file-preview-container" style="display:none;">
+                            <img id="filePreview" alt="Code Preview">
+                            <button id="removeFileBtn" class="icon-btn remove-file-btn" title="Remove image">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="drop-zone-actions" id="fileActionContainer" style="display:none;">
+                        <button id="scanFileBtn" class="primary-btn w-full">
+                            <i data-lucide="scan"></i> Analyze Image
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─────────── TAB: Generate ─────────── -->
+            <section id="generate" class="tab-pane">
+                <div class="generator-layout">
+                    <div class="generator-controls-card card">
+                        <h3>Select Code Type</h3>
+                        <div class="qr-type-selector">
+                            <button class="type-btn active" data-type="text"><i data-lucide="align-left"></i> Text</button>
+                            <button class="type-btn" data-type="url"><i data-lucide="link"></i> URL</button>
+                            <button class="type-btn" data-type="wifi"><i data-lucide="wifi"></i> WiFi</button>
+                            <button class="type-btn" data-type="vcard"><i data-lucide="user"></i> Contact</button>
+                            <button class="type-btn" data-type="email"><i data-lucide="mail"></i> Email</button>
+                            <button class="type-btn" data-type="sms"><i data-lucide="message-square"></i> SMS</button>
+                            <button class="type-btn" data-type="location"><i data-lucide="map-pin"></i> Geo</button>
+                            <button class="type-btn" data-type="event"><i data-lucide="calendar"></i> Event</button>
+                            <button class="type-btn" data-type="barcode"><i data-lucide="barcode"></i> Barcode</button>
+                        </div>
+
+                        <div class="qr-input-fields">
+                            <div class="field-group type-fields active" data-fields="text">
+                                <div class="form-group">
+                                    <label for="genText">Text Message</label>
+                                    <textarea id="genText" placeholder="Type message to encode…"></textarea>
+                                </div>
+                            </div>
+                            <div class="field-group type-fields" data-fields="url">
+                                <div class="form-group">
+                                    <label for="genUrl">Website URL</label>
+                                    <input type="url" id="genUrl" placeholder="https://example.com" value="https://">
+                                </div>
+                            </div>
+                            <div class="field-group type-fields" data-fields="wifi">
+                                <div class="form-group">
+                                    <label for="wifiSsid">SSID (Network Name)</label>
+                                    <input type="text" id="wifiSsid" placeholder="e.g. MyHomeWiFi">
+                                </div>
+                                <div class="form-group">
+                                    <label for="wifiPassword">Password</label>
+                                    <div class="password-input-wrapper">
+                                        <input type="password" id="wifiPassword" placeholder="Network Password">
+                                        <button class="toggle-password-btn" type="button" aria-label="Toggle Password Visibility">
+                                            <i data-lucide="eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="wifiSecurity">Security Type</label>
+                                    <div class="select-wrapper">
+                                        <select id="wifiSecurity">
+                                            <option value="WPA">WPA/WPA2/WPA3</option>
+                                            <option value="WEP">WEP</option>
+                                            <option value="nopass">Unsecured (None)</option>
+                                        </select>
+                                        <i data-lucide="chevron-down" class="select-chevron"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group-checkbox">
+                                    <input type="checkbox" id="wifiHidden">
+                                    <label for="wifiHidden">Hidden Network</label>
+                                </div>
+                            </div>
+                            <div class="field-group type-fields" data-fields="vcard">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="contactFirstName">First Name</label>
+                                        <input type="text" id="contactFirstName" placeholder="John">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactLastName">Last Name</label>
+                                        <input type="text" id="contactLastName" placeholder="Doe">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactPhone">Phone Number</label>
+                                    <input type="tel" id="contactPhone" placeholder="+1 555 0199">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email Address</label>
+                                    <input type="email" id="contactEmail" placeholder="john.doe@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactOrg">Company / Org</label>
+                                    <input type="text" id="contactOrg" placeholder="Acme Corp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactUrl">Website</label>
+                                    <input type="url" id="contactUrl" placeholder="https://acme.corp" value="https://">
+                                </div>
+                            </div>
+                            <div class="field-group type-fields" data-fields="email">
+                                <div class="form-group">
+                                    <label for="genEmailRecipient">Recipient Email</label>
+                                    <input type="email" id="genEmailRecipient" placeholder="hello@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="genEmailSubject">Subject</label>
+                                    <input type="text" id="genEmailSubject" placeholder="Inquiry / Greeting">
+                                </div>
+                                <div class="form-group">
+                                    <label for="genEmailBody">Message Body</label>
+                                    <textarea id="genEmailBody" placeholder="Write message details here…"></textarea>
+                                </div>
+                            </div>
+                            <div class="field-group type-fields" data-fields="sms">
+                                <div class="form-group">
+                                    <label for="genSmsPhone">Recipient Phone</label>
+                                    <input type="tel" id="genSmsPhone" placeholder="+1 555 0199">
+                                </div>
+                                <div class="form-group">
+                                    <label for="genSmsMessage">SMS Message</label>
+                                    <textarea id="genSmsMessage" placeholder="Type text message…"></textarea>
+                                </div>
+                            </div>
+                            <div class="field-group type-fields" data-fields="location">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="genGeoLat">Latitude</label>
+                                        <input type="text" id="genGeoLat" placeholder="37.7749">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="genGeoLon">Longitude</label>
+                                        <input type="text" id="genGeoLon" placeholder="-122.4194">
+                                    </div>
+                                </div>
+                                <button type="button" id="getCurrentGeoBtn" class="secondary-btn w-full">
+                                    <i data-lucide="crosshair"></i> Use My Current Location
+                                </button>
+                            </div>
+                            <div class="field-group type-fields" data-fields="event">
+                                <div class="form-group">
+                                    <label for="eventSummary">Event Title</label>
+                                    <input type="text" id="eventSummary" placeholder="Annual Conference">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="eventStart">Start Date &amp; Time</label>
+                                        <input type="datetime-local" id="eventStart">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="eventEnd">End Date &amp; Time</label>
+                                        <input type="datetime-local" id="eventEnd">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="eventLocation">Location Address</label>
+                                    <input type="text" id="eventLocation" placeholder="Convention Center, Hall A">
+                                </div>
+                                <div class="form-group">
+                                    <label for="eventDesc">Event Description</label>
+                                    <textarea id="eventDesc" placeholder="Agenda and speaker information…"></textarea>
+                                </div>
+                            </div>
+                            <div class="field-group type-fields" data-fields="barcode">
+                                <div class="form-group">
+                                    <label for="barcodeFormat">Barcode Format</label>
+                                    <div class="select-wrapper">
+                                        <select id="barcodeFormat">
+                                            <option value="CODE128">Code 128 (Alpha-Numeric)</option>
+                                            <option value="EAN13">EAN-13 (12/13 Digits)</option>
+                                            <option value="UPC">UPC (11/12 Digits)</option>
+                                            <option value="CODE39">Code 39 (General)</option>
+                                        </select>
+                                        <i data-lucide="chevron-down" class="select-chevron"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="barcodeValue">Barcode Value</label>
+                                    <input type="text" id="barcodeValue" placeholder="Enter barcode characters/numbers">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="customization-accordion">
+                            <button class="accordion-header">
+                                <span>Customize Appearance</span>
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="qrColorDark">Code Color</label>
+                                        <div class="color-picker-wrapper">
+                                            <input type="color" id="qrColorDark" value="#00f0ff">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="qrColorLight">Background</label>
+                                        <div class="color-picker-wrapper">
+                                            <input type="color" id="qrColorLight" value="#0f172a">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="generateBtn" class="primary-btn w-full margin-top">
+                            <i data-lucide="qr-code"></i> Generate Code
+                        </button>
+                    </div>
+
+                    <div class="generator-preview-card card">
+                        <div class="qr-preview-wrapper">
+                            <div id="genQrOutput">
+                                <div class="empty-state">
+                                    <i data-lucide="image" class="empty-icon"></i>
+                                    <p>Your generated output will appear here</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qr-gen-actions" style="display:none;">
+                            <button id="downloadQrBtn" class="secondary-btn w-full">
+                                <i data-lucide="download"></i> Download PNG
+                            </button>
+                            <button id="shareQrBtn" class="secondary-btn w-full">
+                                <i data-lucide="share-2"></i> Copy Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─────────── TAB: History ─────────── -->
+            <section id="history" class="tab-pane">
+                <div class="history-card card">
+                    <div class="history-header">
+                        <h3>Recent Scans &amp; Generations</h3>
+                        <button id="clearHistoryBtn" class="danger-btn btn-sm" style="display:none;">
+                            <i data-lucide="trash-2"></i> Clear All
+                        </button>
+                    </div>
+                    <div id="historyList" class="history-list">
+                        <div class="empty-state">
+                            <i data-lucide="folder-open" class="empty-icon"></i>
+                            <p>No scans or generated codes yet</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─────────── TAB: Pro Tools ─────────── -->
+            <section id="tools" class="tab-pane">
+                <div class="tools-dashboard-header">
+                    <div class="tools-header-badge">FREE ACCESS</div>
+                    <h2>Pro Utilities</h2>
+                    <p>All tools are free to use in this app. Choose a tool to get started.</p>
+                </div>
+
+                <div class="tools-category-label">
+                    <i data-lucide="file-stack"></i> PDF Tools
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card" data-tool="pdf-to-jpg" data-icon="file-output" data-theme="pdf-theme">
+                        <div class="tool-icon-wrapper pdf-theme"><i data-lucide="file-output"></i></div>
+                        <h3>PDF to JPG</h3>
+                        <p>Convert PDF pages to high-quality images</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="pdf-merger" data-icon="files" data-theme="pdf-theme">
+                        <div class="tool-icon-wrapper pdf-theme"><i data-lucide="files"></i></div>
+                        <h3>PDF Merger</h3>
+                        <p>Combine multiple PDFs into one file</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="pdf-splitter" data-icon="scissors" data-theme="pdf-theme">
+                        <div class="tool-icon-wrapper pdf-theme"><i data-lucide="scissors"></i></div>
+                        <h3>PDF Splitter</h3>
+                        <p>Extract pages from a PDF document</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="pdf-compressor" data-icon="minimize-2" data-theme="pdf-theme">
+                        <div class="tool-icon-wrapper pdf-theme"><i data-lucide="minimize-2"></i></div>
+                        <h3>PDF Compressor</h3>
+                        <p>Reduce PDF file size for easy sharing</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="pdf-to-word" data-icon="file-text" data-theme="word-theme">
+                        <div class="tool-icon-wrapper word-theme"><i data-lucide="file-text"></i></div>
+                        <h3>PDF to Word</h3>
+                        <p>Convert PDFs to editable Word documents</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="word-to-pdf" data-icon="file-plus-2" data-theme="word-theme">
+                        <div class="tool-icon-wrapper word-theme"><i data-lucide="file-plus-2"></i></div>
+                        <h3>Word to PDF</h3>
+                        <p>Convert .DOCX documents to PDF</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+
+                    <div class="tool-card" data-tool="ppt-to-pdf" data-icon="presentation" data-theme="ppt-theme">
+                        <div class="tool-icon-wrapper ppt-theme"><i data-lucide="presentation"></i></div>
+                        <h3>PPT to PDF</h3>
+                        <p>Convert presentations to PDF format</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                </div>
+
+                <div class="tools-category-label" style="margin-top:2rem;">
+                    <i data-lucide="image"></i> Image &amp; Document Tools
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card" data-tool="image-to-pdf" data-icon="image-plus" data-theme="image-theme">
+                        <div class="tool-icon-wrapper image-theme"><i data-lucide="image-plus"></i></div>
+                        <h3>Image to PDF</h3>
+                        <p>Turn images and photos into a PDF</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="doc-scanner" data-icon="scan-line" data-theme="scan-theme">
+                        <div class="tool-icon-wrapper scan-theme"><i data-lucide="scan-line"></i></div>
+                        <h3>Document Scanner</h3>
+                        <p>Scan and enhance paper documents</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+
+                    <div class="tool-card" data-tool="image-resizer" data-icon="scaling" data-theme="image-theme">
+                        <div class="tool-icon-wrapper image-theme"><i data-lucide="scaling"></i></div>
+                        <h3>Image Resizer</h3>
+                        <p>Resize and optimize images easily</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" id="barcodeToolLink" data-tool="barcode-scanner" data-icon="barcode" data-theme="scan-theme">
+                        <div class="tool-icon-wrapper scan-theme"><i data-lucide="barcode"></i></div>
+                        <h3>Barcode Scanner</h3>
+                        <p>Scan and decode 1D/2D barcodes live</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="esignature" data-icon="pen-tool" data-theme="signature-theme">
+                        <div class="tool-icon-wrapper signature-theme"><i data-lucide="pen-tool"></i></div>
+                        <h3>E-Signature</h3>
+                        <p>Draw and save your digital signature</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                </div>
+
+                <div class="tools-category-label" style="margin-top:2rem;">
+                    <i data-lucide="sparkles"></i> Advanced Utilities &amp; Media Tools
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card" data-tool="ocr-tool" data-icon="file-search" data-theme="ocr-theme">
+                        <div class="tool-icon-wrapper ocr-theme"><i data-lucide="file-search"></i></div>
+                        <h3>OCR Text Extractor</h3>
+                        <p>Extract editable text from images &amp; scans</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="word-counter" data-icon="type" data-theme="text-theme">
+                        <div class="tool-icon-wrapper text-theme"><i data-lucide="type"></i></div>
+                        <h3>Word Counter</h3>
+                        <p>Live word, character &amp; reading time stats</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="image-compressor" data-icon="minimize-2" data-theme="image-theme">
+                        <div class="tool-icon-wrapper image-theme"><i data-lucide="minimize-2"></i></div>
+                        <h3>Image Compressor</h3>
+                        <p>Reduce file size with custom quality slider</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="image-watermark" data-icon="stamp" data-theme="watermark-theme">
+                        <div class="tool-icon-wrapper watermark-theme"><i data-lucide="stamp"></i></div>
+                        <h3>Image Watermark</h3>
+                        <p>Add custom watermark or erase existing marks</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                    <div class="tool-card" data-tool="image-format-converter" data-icon="refresh-cw" data-theme="image-theme">
+                        <div class="tool-icon-wrapper image-theme"><i data-lucide="refresh-cw"></i></div>
+                        <h3>Format Converter</h3>
+                        <p>Convert images to JPG, PNG, WebP or BMP</p>
+                        <span class="free-badge">FREE</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ─────────── SCAN RESULT PANEL ─────────── -->
+            <section id="scanResultSection" class="card result-card" style="display:none;">
+                <div class="result-header">
+                    <div class="result-type-badge">
+                        <i id="resultIcon" data-lucide="info"></i>
+                        <span id="resultTypeName">Text</span>
+                    </div>
+                    <button id="closeResultBtn" class="modal-close-btn" title="Close results">
+                        <i data-lucide="x"></i>
+                        <span class="modal-close-label">Close</span>
+                    </button>
+                </div>
+                <div class="result-body">
+                    <div id="parsedResultDetails"></div>
+                    <div class="raw-data-collapsible">
+                        <button class="raw-toggle">
+                            <span>Raw Data Content</span>
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                        <div class="raw-content-box" style="display:none;">
+                            <pre id="rawResultText"></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-footer">
+                    <div id="dynamicActions" class="actions-row w-full margin-bottom"></div>
+                    <div class="export-environment">
+                        <h4><i data-lucide="download-cloud"></i> Export Data</h4>
+                        <div class="export-buttons-grid">
+                            <button id="copyRawBtn" class="export-btn secondary-btn">
+                                <i data-lucide="copy"></i><span>Copy Text</span>
+                            </button>
+                            <button id="downloadTxtBtn" class="export-btn primary-btn">
+                                <i data-lucide="file-text"></i><span>Save .TXT</span>
+                            </button>
+                            <button id="downloadCsvBtn" class="export-btn secondary-btn">
+                                <i data-lucide="sheet"></i><span>Save .CSV</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ─────────── FOOTER AD ─────────── -->
+        <footer class="app-footer-ad">
+            <div class="ad-banner-card card">
+                <span class="ad-label">Notice</span>
+                <div class="ad-content">
+                    <i data-lucide="flask-conical" class="ad-icon"></i>
+                    <div class="ad-text-wrapper">
+                        <h4>Litescan — Free Utility Suite</h4>
+                        <p>Use the full set of document, image, and QR tools directly in your browser.</p>
+                    </div>
+                    <button class="primary-btn btn-sm ad-cta-btn" id="openAboutBtnFooter">Learn More</button>
+                </div>
+            </div>
+        </footer>
+        <div class="app-footer-links">
+            <button class="footer-link" id="footerPrivacyBtn">Privacy Policy</button>
+            <span class="footer-separator">•</span>
+            <button class="footer-link" id="footerTermsBtn">Terms of Service</button>
+            <span class="footer-separator">•</span>
+            <button class="footer-link" id="footerLicenseBtn">Open Source License</button>
+            <span class="footer-separator">•</span>
+            <button class="footer-link" id="footerAboutBtn">About</button>
+            <span class="footer-separator">•</span>
+            <span>© 2026 Litescan</span>
+        </div>
+    </div>
+
+    <!-- ══════════════ TOOL WORKSPACE MODAL ══════════════ -->
+    <div id="toolModal" class="modal-overlay" style="display:none;">
+        <div class="modal-card tool-workspace-card">
+            <div class="modal-header">
+                <div class="tool-modal-title">
+                    <div class="tool-modal-icon" id="toolModalIcon"></div>
+                    <h2 id="toolModalTitle">Tool Name</h2>
+                </div>
+                <button class="modal-close-btn" id="closeToolModal">
+                    <i data-lucide="x"></i>
+                    <span class="modal-close-label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body tool-modal-body" id="toolModalBody">
+                <!-- Dynamically injected content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ MODAL: Settings ══════════════ -->
+    <div id="settingsModal" class="modal-overlay" style="display:none;">
+        <div class="modal-card card">
+            <div class="modal-header">
+                <h2><i data-lucide="settings"></i> Preferences &amp; Settings</h2>
+                <button class="modal-close-btn closeModalBtn" title="Close">
+                    <i data-lucide="x"></i>
+                    <span class="modal-close-label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-group">
+                    <h3>Clipboard &amp; System Actions</h3>
+                    <div class="settings-row">
+                        <div class="settings-text">
+                            <h4>Automatic Copy to Clipboard</h4>
+                            <p>Copy raw text results automatically upon successful scans</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="settingAutoCopy" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-group">
+                    <h3>Barcode &amp; Product Search Region</h3>
+                    <div class="form-group">
+                        <label for="settingCountry">Search Database Region</label>
+                        <p class="settings-p-desc">Determines which regional database is queried for scanned product barcodes</p>
+                        <div class="select-wrapper">
+                            <select id="settingCountry">
+                                <option value="auto">Auto-Detect (Global)</option>
+                                <option value="US">United States (US)</option>
+                                <option value="UK">United Kingdom (UK)</option>
+                                <option value="DE">Germany (DE)</option>
+                                <option value="FR">France (FR)</option>
+                                <option value="JP">Japan (JP)</option>
+                                <option value="IN">India (IN)</option>
+                                <option value="CN">China (CN)</option>
+                            </select>
+                            <i data-lucide="chevron-down" class="select-chevron"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-group">
+                    <h3>Camera Tips</h3>
+                    <ul class="settings-list">
+                        <li>Use Chrome or Safari for best camera performance.</li>
+                        <li>Ensure good lighting and keep codes flat and unwrinkled.</li>
+                        <li>Use the zoom slider for scanning codes from a distance.</li>
+                    </ul>
+                </div>
+                <div class="settings-group">
+                    <h3>App Details</h3>
+                    <div class="detail-row">
+                        <span class="detail-label">Software Version</span>
+                        <span class="detail-value">2.0.0</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Network Mode</span>
+                        <span class="detail-value text-success">Secure Offline-First</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Access</span>
+                        <span class="detail-value" style="color:var(--success);">Full Tools Access</span>
+                    </div>
+                </div>
+
+                <!-- ──── HELP SECTION ──── -->
+                <div class="settings-group help-group">
+                    <h3><i data-lucide="help-circle" style="width:16px;height:16px;vertical-align:middle;margin-right:6px;"></i> Help &amp; Tool Guides</h3>
+                    <p class="settings-p-desc">Learn how to effectively use every feature of Litescan. Each guide is kept in a separate file so the app is easier to maintain and update.</p>
+                    <div id="helpGuideContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ MODAL: About ══════════════ -->
+    <div id="aboutModal" class="modal-overlay" style="display:none;">
+        <div class="modal-card card">
+            <div class="modal-header">
+                <h2><i data-lucide="info"></i> About Litescan</h2>
+                <button class="modal-close-btn closeModalBtn" title="Close">
+                    <i data-lucide="x"></i>
+                    <span class="modal-close-label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body about-body">
+                <div class="about-logo-wrapper"><i data-lucide="qr-code" class="about-logo"></i></div>
+                <h3>Litescan Professional</h3>
+                <p class="about-version">Build v2.0.0</p>
+                <p>Litescan is an offline-capable, privacy-focused client-side application for generating and scanning QR codes, barcodes, and document files with a complete suite of utility tools.</p>
+                <div class="about-features">
+                    <div class="about-feature-item">
+                        <i data-lucide="shield-check"></i>
+                        <div>
+                            <h4>100% Client-Side Privacy</h4>
+                            <p>No code data or camera feeds are ever sent to external servers.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature-item">
+                        <i data-lucide="zap"></i>
+                        <div>
+                            <h4>Instant Audio Feedback</h4>
+                            <p>Scan confirmed by a synthesized audio beep using the Web Audio API.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature-item">
+                        <i data-lucide="layout-grid"></i>
+                        <div>
+                            <h4>14 Pro Tools — All Free</h4>
+                            <p>PDF converters, OCR, Image Resizer, E-Signature and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-divider"></div>
+
+                <div class="about-license-box">
+                    <h4><strong>Open Source License</strong></h4>
+                    <p>Litescan uses third-party libraries and browser-based components under their own licenses. See the full license terms for the detailed attribution and legal notices.</p>
+                    <a href="pages/license.html" class="primary-btn btn-sm" style="display:inline-flex; margin-top:10px;">
+                        <i data-lucide="file-text" style="width:16px;height:16px;"></i>
+                        Open Source License
+                    </a>
+                </div>
+
+                <p class="about-copyright">© 2024–2026 Litescan. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ MOBILE BOTTOM NAV ══════════════ -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <div class="mobile-nav-inner">
+            <button class="mobile-nav-btn active" data-tab="camera-scan">
+                <i data-lucide="camera"></i>
+                <span class="mobile-nav-label">Scan</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="generate">
+                <i data-lucide="pencil-ruler"></i>
+                <span class="mobile-nav-label">Create</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="history">
+                <i data-lucide="history"></i>
+                <span class="mobile-nav-label">History</span>
+                <span class="mobile-badge" id="mobileHistoryBadge" style="display:none;">0</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="tools">
+                <i data-lucide="layout-grid"></i>
+                <span class="mobile-nav-label">Tools</span>
+            </button>
+            <button class="mobile-nav-btn" id="mobileMoreBtn">
+                <i data-lucide="menu"></i>
+                <span class="mobile-nav-label">More</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ══════════════ MOBILE DRAWER ══════════════ -->
+    <div class="mobile-drawer-overlay" id="mobileDrawer">
+        <div class="mobile-drawer-panel">
+            <div class="drawer-handle"></div>
+            <div class="drawer-header">
+                <h3><i data-lucide="qr-code" style="width:20px;height:20px;color:var(--accent);"></i> Litescan Menu</h3>
+                <button class="drawer-close-btn" id="closeDrawerBtn"><i data-lucide="x"></i></button>
+            </div>
+            <div class="drawer-menu">
+                <button class="drawer-menu-item" id="drawerInstallBtn" style="display:none; color:var(--accent); font-weight:600;">
+                    <i data-lucide="download-cloud"></i> Install App
+                </button>
+                <button class="drawer-menu-item" data-tab="file-scan">
+                    <i data-lucide="file-up"></i> Scan from File
+                </button>
+                <div class="drawer-divider"></div>
+                <div class="drawer-section-label">Preferences</div>
+                <button class="drawer-menu-item" id="drawerSettingsBtn">
+                    <i data-lucide="settings"></i> Settings & Preferences
+                </button>
+                <button class="drawer-menu-item" id="drawerThemeBtn">
+                    <i data-lucide="sun"></i> Toggle Theme
+                </button>
+                <div class="drawer-divider"></div>
+                <div class="drawer-section-label">Legal & Info</div>
+                <button class="drawer-menu-item" id="drawerAboutBtn">
+                    <i data-lucide="info"></i> About Litescan
+                </button>
+                <button class="drawer-menu-item" id="drawerLicenseBtn">
+                    <i data-lucide="file-text"></i> <strong>Open Source License</strong>
+                </button>
+                <button class="drawer-menu-item" id="drawerPrivacyBtn">
+                    <i data-lucide="shield"></i> Privacy Policy
+                </button>
+                <button class="drawer-menu-item" id="drawerTermsBtn">
+                    <i data-lucide="file-check"></i> Terms of Service
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ PWA INSTALLATION MODAL ══════════════ -->
+    <div id="installModal" class="modal-overlay" style="display:none;">
+        <div class="modal-card card install-modal-card">
+            <div class="modal-header">
+                <h2><i data-lucide="download-cloud" style="color:var(--accent);"></i> Install Litescan</h2>
+                <button class="modal-close-btn closeModalBtn" title="Close" id="closeInstallModalBtn">
+                    <i data-lucide="x"></i>
+                    <span class="modal-close-label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body install-body">
+                <div class="install-hero">
+                    <div class="install-logo-wrapper">
+                        <i data-lucide="qr-code" class="install-logo"></i>
+                    </div>
+                    <h3>Get Litescan App</h3>
+                    <p>Install Litescan on your device for offline support, fast access, and a full screen experience.</p>
+                </div>
+                
+                <div class="install-action-wrapper" id="nativeInstallWrapper">
+                    <button class="primary-btn install-now-btn" id="modalInstallBtn">
+                        <i data-lucide="download"></i> Install Now
+                    </button>
+                    <div class="or-separator">or follow device steps below</div>
+                </div>
+
+                <!-- Device Guide Selector -->
+                <div class="device-selector">
+                    <button class="device-tab active" data-device="pc">
+                        <i data-lucide="monitor"></i><span>PC / Laptop</span>
+                    </button>
+                    <button class="device-tab" data-device="mobile">
+                        <i data-lucide="smartphone"></i><span>Phone / Mobile</span>
+                    </button>
+                    <button class="device-tab" data-device="watch">
+                        <i data-lucide="watch"></i><span>Smartwatch</span>
+                    </button>
+                    <button class="device-tab" data-device="safari">
+                        <i data-lucide="app-window"></i><span>iOS / Safari</span>
+                    </button>
+                </div>
+
+                <!-- Device Instruction Content -->
+                <div class="device-instructions">
+                    <!-- PC / Laptop -->
+                    <div class="instruction-panel active" data-device="pc">
+                        <div class="step-list">
+                            <div class="step-item">
+                                <span class="step-num">1</span>
+                                <p>Click the <strong>"Install Now"</strong> button above or the download icon (<i data-lucide="download-cloud" style="width:14px;height:14px;vertical-align:middle;"></i>) in your browser's address bar (URL bar).</p>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">2</span>
+                                <p>On Chrome or Edge, click <strong>"Install"</strong> when the prompt appears.</p>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">3</span>
+                                <p>The app will launch in its own standalone window and will be added to your Desktop/Start Menu automatically.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phone / Mobile (Android) -->
+                    <div class="instruction-panel" data-device="mobile">
+                        <div class="step-list">
+                            <div class="step-item">
+                                <span class="step-num">1</span>
+                                <p>Open this website using <strong>Google Chrome</strong> or <strong>Samsung Internet</strong> on your phone.</p>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">2</span>
+                                <p>Tap the <strong>"Install Now"</strong> button, or tap the three dots menu at the top-right and select <strong>"Add to Home screen"</strong> or <strong>"Install app"</strong>.</p>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">3</span>
+                                <p>Confirm the installation so LiteScan appears in your App Drawer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Smartwatch -->
+                    <div class="instruction-panel" data-device="watch">
+                        <div class="step-list">
+                            <div class="step-item">
+                                <span class="step-num">1</span>
+                                <p>Ensure your smartwatch is connected to the internet and is using a PWA-compatible browser (such as Wear OS Browser).</p>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">2</span>
+                                <p>Tap the browser menu (three dots) and select <strong>"Add to Home screen"</strong> or download directly.</p>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">3</span>
+                                <p>LiteScan will be installed and run quickly with a full screen layout on your watch.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- iOS Safari (iPhone/iPad) -->
+                    <div class="instruction-panel" data-device="safari">
+                        <div class="step-list">
+                            <div class="step-item">
+                                <span class="step-num">1</span>
+                                <p>Open the <strong>Safari</strong> browser on your iPhone or iPad.</p>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">2</span>
+                                <p>Tap the share button <strong>"Share"</strong> (<i data-lucide="share" style="width:14px;height:14px;vertical-align:middle;"></i>) at the bottom of the screen.</p>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-num">3</span>
+                                <p>Scroll down the menu and tap <strong>"Add to Home Screen"</strong> (<i data-lucide="plus-square" style="width:14px;height:14px;vertical-align:middle;"></i>) then tap <strong>"Add"</strong> at the top right.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ PRIVACY POLICY MODAL ══════════════ -->
+    <div id="privacyModal" class="modal-overlay" style="display:none;">
+        <div class="modal-card legal-modal-card card">
+            <div class="modal-header">
+                <h2><i data-lucide="shield"></i> Privacy Policy</h2>
+                <button class="modal-close-btn closeModalBtn" title="Close">
+                    <i data-lucide="x"></i>
+                    <span class="modal-close-label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="legal-content">
+                    <h3>1. Introduction</h3>
+                    <p>Welcome to Litescan ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our web application.</p>
+
+                    <h3>2. Information We Collect</h3>
+                    <p>Litescan is designed with a <strong>privacy-first</strong> approach. Our application operates almost entirely on the client-side (your device).</p>
+                    <ul>
+                        <li><strong>Camera Access:</strong> We request access to your device's camera solely for the purpose of scanning QR codes and barcodes. Camera feeds are processed locally on your device and are <strong>never transmitted</strong> to any external servers.</li>
+                        <li><strong>Local Storage:</strong> We use your browser's localStorage to save your scan history, app preferences (such as theme settings), and generated codes. This data remains on your device and is never sent to our servers.</li>
+                        <li><strong>File Uploads:</strong> When you use our file scanning or document tools (PDF tools, image tools, OCR), all files are processed entirely within your browser. <strong>No files are uploaded to any server.</strong></li>
+                        <li><strong>Personal Information:</strong> We do not collect personal information such as your name, email address, or phone number through the app itself.</li>
+                    </ul>
+
+                    <h3>3. How We Use Information</h3>
+                    <p>The limited data stored locally is used exclusively to:</p>
+                    <ul>
+                        <li>Display your scan history for quick reference</li>
+                        <li>Remember your app preferences and theme settings</li>
+                        <li>Improve your user experience within the application</li>
+                    </ul>
+
+                    <h3>4. Third-Party Services</h3>
+                    <p>Our application may use the following third-party services:</p>
+                    <ul>
+                        <li><strong>Google Fonts:</strong> We use Google Fonts to provide typography. Google may collect usage data as described in their privacy policy.</li>
+                        <li><strong>CDN Libraries:</strong> We load open-source JavaScript libraries from CDNs (such as jsDelivr and unpkg) to power our features. These services may log standard web request data.</li>
+                        <li><strong>Google AdSense:</strong> We may display advertisements through Google AdSense. Google uses cookies and similar technologies to serve ads based on your browsing activity. You can manage your ad preferences through Google's Ad Settings.</li>
+                    </ul>
+
+                    <h3>5. Cookies & Tracking</h3>
+                    <p>Litescan itself does not set tracking cookies. However, third-party services we integrate (such as Google AdSense) may use cookies. You can control cookie preferences through your browser settings.</p>
+
+                    <h3>6. Data Security</h3>
+                    <p>Since all core processing happens on your device, your data benefits from the security of your own device and browser. We do not store or process your data on any external servers, minimizing the risk of data breaches.</p>
+
+                    <h3>7. Children's Privacy</h3>
+                    <p>Litescan is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us so we can take appropriate action.</p>
+
+                    <h3>8. Changes to This Policy</h3>
+                    <p>We may update this Privacy Policy from time to time. Any changes will be posted within the application with an updated effective date. Continued use of Litescan after changes constitutes acceptance of the updated policy.</p>
+
+                    <h3>9. Contact Us</h3>
+                    <p>If you have questions about this Privacy Policy or our data practices, please reach out to us at:</p>
+                    <p><strong>Email:</strong> support@litescan.app</p>
+
+                    <p class="legal-effective-date">Effective Date: June 23, 2026 · Last Updated: June 23, 2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ TERMS OF SERVICE MODAL ══════════════ -->
+    <div id="termsModal" class="modal-overlay" style="display:none;">
+        <div class="modal-card legal-modal-card card">
+            <div class="modal-header">
+                <h2><i data-lucide="file-check"></i> Terms of Service</h2>
+                <button class="modal-close-btn closeModalBtn" title="Close">
+                    <i data-lucide="x"></i>
+                    <span class="modal-close-label">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="legal-content">
+                    <h3>1. Acceptance of Terms</h3>
+                    <p>By accessing and using Litescan ("the App"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the App.</p>
+
+                    <h3>2. Description of Service</h3>
+                    <p>Litescan is a free, client-side web application that provides QR code scanning, QR code generation, barcode tools, and various document and image processing utilities. All processing is performed locally on your device.</p>
+
+                    <h3>3. Use of the Service</h3>
+                    <p>You agree to use Litescan only for lawful purposes and in accordance with these Terms. You shall not:</p>
+                    <ul>
+                        <li>Use the App to generate QR codes containing illegal, harmful, or malicious content</li>
+                        <li>Attempt to reverse engineer, decompile, or disassemble the App</li>
+                        <li>Use the App in any way that could damage, disable, or impair the service</li>
+                        <li>Use automated systems to access the App in a manner that sends more requests than a human could reasonably produce</li>
+                    </ul>
+
+                    <h3>4. Intellectual Property</h3>
+                    <p>The Litescan application, including its design, code, and branding, is protected by intellectual property laws. QR codes and barcodes you generate using the App are yours to use freely.</p>
+
+                    <h3>5. Disclaimer of Warranties</h3>
+                    <p>Litescan is provided "as is" and "as available" without any warranties of any kind, either express or implied. We do not guarantee that the App will be error-free, uninterrupted, or that it will meet your specific requirements.</p>
+
+                    <h3>6. Limitation of Liability</h3>\n                    <p>To the maximum extent permitted by law, Litescan and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App.</p>
+
+                    <h3>7. Advertisements</h3>
+                    <p>Litescan may display third-party advertisements. These ads may be served by third-party ad networks, including Google AdSense. We are not responsible for the content of third-party advertisements.</p>
+
+                    <h3>8. Modifications to Service</h3>
+                    <p>We reserve the right to modify, suspend, or discontinue Litescan at any time without prior notice. We may also update these Terms from time to time. Continued use of the App after changes constitutes acceptance.</p>
+
+                    <h3>9. Governing Law</h3>
+                    <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles.</p>
+
+                    <h3>10. Contact</h3>
+                    <p>For questions about these Terms of Service, contact us at:</p>
+                    <p><strong>Email:</strong> support@litescan.app</p>
+
+                    <p class="legal-effective-date">Effective Date: June 23, 2026 · Last Updated: June 23, 2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ TOAST ══════════════ -->
+    <div id="toast" class="toast" role="alert">
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="tools/tool-registry.js" defer></script>
+    <script src="tools/app-core.js" defer></script>
+    <script src="tools/qr-scanner.js" defer></script>
+    <script src="tools/qr-generator.js" defer></script>
+    <script src="tools/ocr.js" defer></script>
+    <script src="tools/pdf-tools.js" defer></script>
+    <script src="tools/word-counter.js" defer></script>
+    <script src="tools/history/history.js" defer></script>
+    <script src="tools/advanced/ocr-tool.js" defer></script>
+    <script src="tools/advanced/image-compressor.js" defer></script>
+    <script src="tools/advanced/image-watermark.js" defer></script>
+    <script src="tools/advanced/image-format-converter.js" defer></script>
+    <script src="tools/settings.js" defer></script>
+    <script src="js/app.js" defer></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+        // Force update: clear stale cached assets and unregister outdated service workers
+        try {
+            const cacheVersionKey = 'litescan_sw_force_update_v4';
+            if (window.localStorage && !window.localStorage.getItem(cacheVersionKey)) {
+                window.localStorage.setItem(cacheVersionKey, 'true');
+                if ('caches' in window) {
+                    caches.keys().then(names => {
+                        for (let name of names) caches.delete(name);
+                    }).catch(err => console.warn(err));
+                }
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.getRegistrations().then(registrations => {
+                        for (let registration of registrations) {
+                            registration.unregister();
+                        }
+                    }).catch(err => console.warn(err)).finally(() => {
+                        window.location.reload(true);
+                    });
+                } else {
+                    window.location.reload(true);
+                }
+            }
+        } catch (e) {
+            console.warn("Cache migration failed:", e);
+        }
+
+        // Register Service Worker for offline support and caching
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./pwa/sw.js')
+                    .then((registration) => {
+                        console.log('✓ Service Worker registered:', registration.scope);
+                        
+                        // Check for updates periodically
+                        setInterval(() => {
+                            registration.update();
+                        }, 60000); // Check every minute
+                    })
+                    .catch((error) => {
+                        console.warn('Service Worker registration failed:', error);
+                    });
+            });
+            
+            // Handle updates
+            let refreshing = false;
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (refreshing) return;
+                refreshing = true;
+                window.location.reload();
+            });
+        }
+        
+        // PWA Install Prompt & Custom Install Dialog
+        let deferredPrompt;
+        const installPWABtn = document.getElementById('installPWABtn');
+        const navInstallBtn = document.getElementById('navInstallBtn');
+        const drawerInstallBtn = document.getElementById('drawerInstallBtn');
+        const installModal = document.getElementById('installModal');
+        const closeInstallModalBtn = document.getElementById('closeInstallModalBtn');
+        const modalInstallBtn = document.getElementById('modalInstallBtn');
+        const nativeInstallWrapper = document.getElementById('nativeInstallWrapper');
+        
+        // Show/hide secondary install buttons (nav tab + drawer). Header button stays visible always.
+        function toggleInstallButtons(show) {
+            const displayVal = show ? 'flex' : 'none';
+            if (navInstallBtn) navInstallBtn.style.display = displayVal;
+            if (drawerInstallBtn) drawerInstallBtn.style.display = displayVal;
+        }
+
+        // Hide ALL install buttons — ONLY after app is confirmed installed
+        function hideAllInstallButtons() {
+            if (installPWABtn) installPWABtn.style.display = 'none';
+            if (navInstallBtn) navInstallBtn.style.display = 'none';
+            if (drawerInstallBtn) drawerInstallBtn.style.display = 'none';
+        }
+
+        // Show PWA installation options
+        function openInstallDialog() {
+            if (installModal) {
+                installModal.style.display = 'flex';
+                
+                // Show/hide native install button based on availability of deferredPrompt
+                if (deferredPrompt) {
+                    if (nativeInstallWrapper) nativeInstallWrapper.style.display = 'block';
+                } else {
+                    if (nativeInstallWrapper) nativeInstallWrapper.style.display = 'none';
+                }
+                
+                // Auto-detect platform and pre-select corresponding tab
+                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                let activeTab = 'pc';
+                
+                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    activeTab = 'safari';
+                } else if (/android/i.test(userAgent)) {
+                    activeTab = 'mobile';
+                } else if (/smartwatch|wear/i.test(userAgent)) {
+                    activeTab = 'watch';
+                }
+                
+                // Trigger click on corresponding tab
+                const targetTab = document.querySelector(`.device-tab[data-device="${activeTab}"]`);
+                if (targetTab) targetTab.click();
+            }
+        }
+
+        // Handle installation trigger
+        async function handleInstallTrigger() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                if (outcome === 'accepted') {
+                    toggleInstallButtons(false);
+                }
+                deferredPrompt = null;
+            } else {
+                openInstallDialog();
+            }
+        }
+
+        // Add event listeners to trigger install flow (automatic if supported)
+        [installPWABtn, navInstallBtn, drawerInstallBtn].forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    handleInstallTrigger();
+                });
+            }
+        });
+
+        // Close Install Modal
+        if (closeInstallModalBtn) {
+            closeInstallModalBtn.addEventListener('click', () => {
+                if (installModal) installModal.style.display = 'none';
+            });
+        }
+        if (installModal) {
+            installModal.addEventListener('click', (e) => {
+                if (e.target === installModal) installModal.style.display = 'none';
+            });
+        }
+
+        // Device tab switching logic inside modal
+        const deviceTabs = document.querySelectorAll('.device-tab');
+        const instructionPanels = document.querySelectorAll('.instruction-panel');
+        deviceTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                deviceTabs.forEach(t => t.classList.remove('active'));
+                instructionPanels.forEach(p => p.classList.remove('active'));
+                
+                tab.classList.add('active');
+                const targetDevice = tab.dataset.device;
+                const targetPanel = document.querySelector(`.instruction-panel[data-device="${targetDevice}"]`);
+                if (targetPanel) targetPanel.classList.add('active');
+            });
+        });
+
+        // Native Install Button click handler inside modal
+        if (modalInstallBtn) {
+            modalInstallBtn.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    console.log(`User response to the install prompt: ${outcome}`);
+                    if (outcome === 'accepted') {
+                        toggleInstallButtons(false);
+                        if (installModal) installModal.style.display = 'none';
+                    }
+                    deferredPrompt = null;
+                }
+            });
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            toggleInstallButtons(true);
+        });
+        
+        window.addEventListener('appinstalled', () => {
+            console.log('✓ PWA installed successfully');
+            deferredPrompt = null;
+            hideAllInstallButtons();
+            if (installModal) installModal.style.display = 'none';
+        });
+
+        // Detect if already installed / in standalone mode, hide secondary buttons only
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+            // App is running as installed PWA — hide ALL install buttons including header
+            hideAllInstallButtons();
+        }
+    </script>
+    <script>
+    console.log("%c STOP! ILLEGAL TO COPY MTUI CODES", "color: red; font-size: 24px; font-weight: bold; -webkit-text-stroke: 1px black;");
+console.warn("Unauthorized copying of this source code is strictly prohibited. Property of MTUI.");
+
+</script>
+
+<script>
+    // Zuia Right Click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Zuia shortcuts za keyboard (F12, Ctrl+Shift+I, Ctrl+U)
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+            alert("ILLEGAL TO COPY MTUI CODES");
+            return false;
+        }
+    };
+</script>
+ </body>
+</html>
+

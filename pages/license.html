@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Source License | Litescan</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+        body {
+            margin: 0;
+            background: #0d1117;
+            color: #e5edf7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .page-shell {
+            position: relative;
+            max-width: 980px;
+            margin: 48px auto;
+            padding: 32px 24px 64px;
+        }
+        .page-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            background: rgba(15, 23, 42, 0.8);
+            color: #e5edf7;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+        .page-close-btn:hover {
+            background: rgba(31, 41, 55, 0.95);
+            border-color: rgba(125, 211, 252, 0.6);
+            transform: translateY(-1px);
+        }
+        .page-header {
+            margin-bottom: 30px;
+            padding-right: 56px;
+        }
+        .page-header h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+        .page-header p {
+            margin: 0;
+            color: #a8bbd6;
+            line-height: 1.7;
+        }
+        .license-card {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(130, 170, 255, 0.2);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        }
+        .license-card h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.35rem;
+            color: #7fe7ff;
+        }
+        .license-card p,
+        .license-card li {
+            color: #dfeaf7;
+            line-height: 1.8;
+        }
+        .license-card strong {
+            color: #ffffff;
+        }
+        .license-card ul {
+            margin: 12px 0 0 18px;
+            padding: 0;
+        }
+        .page-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            color: #7fe7ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <main class="page-shell">
+            <button class="page-close-btn" aria-label="Close page" title="Close" onclick="window.location.href='../index.html'">×</button>
+            <div class="page-header">
+                <h1><strong>Open Source License</strong></h1>
+                <p>Litescan is built using open-source libraries and browser technologies. This page lists the main dependencies and their licensing terms so the project remains transparent and professionally attributed.</p>
+            </div>
+
+            <section class="license-card">
+                <h2>ZXing</h2>
+                <p><strong>License:</strong> Apache License 2.0</p>
+                <p><strong>Copyright:</strong> 2024–2026</p>
+                <p>Apache 2.0 is a permissive open-source license that allows use, modification, and redistribution with appropriate notice. It is commonly used for production scanning and decoding libraries.</p>
+            </section>
+
+            <section class="license-card">
+                <h2>QR Code Generation Libraries</h2>
+                <p><strong>License:</strong> MIT License</p>
+                <p><strong>Copyright:</strong> 2024–2026</p>
+                <p>The MIT License is a short and widely used permissive license. It permits free use, modification, and redistribution as long as the copyright and license notice remain included.</p>
+            </section>
+
+            <section class="license-card">
+                <h2>PDF, OCR, and Document Utility Libraries</h2>
+                <p><strong>License:</strong> MIT / Apache-compatible open source terms</p>
+                <p><strong>Copyright:</strong> 2024–2026</p>
+                <p>These components support PDF conversion, OCR text extraction, file processing, and document handling within the browser. Their licenses are preserved by their upstream maintainers and remain subject to their original terms.</p>
+            </section>
+
+            <section class="license-card">
+                <h2>Frontend and UI Components</h2>
+                <p><strong>License:</strong> MIT / Apache-compatible open source terms</p>
+                <p><strong>Copyright:</strong> 2024–2026</p>
+                <p>UI icons, typography, and browser runtime support are credited through their original open-source entries. These dependencies are used to improve usability, access, and interface clarity.</p>
+            </section>
+
+            <section class="license-card">
+                <h2>Notice</h2>
+                <p>All third-party software is used in accordance with its applicable license. Litescan does not claim ownership of external source code, assets, or trademarks beyond the original app implementation and branding created for this project.</p>
+                <ul>
+                    <li>License terms may be updated by upstream projects.</li>
+                    <li>Review the original package repositories for exact legal language.</li>
+                    <li>The app remains subject to the copyright notices listed within this project and the source licenses of the libraries it depends on.</li>
+                </ul>
+            </section>
+
+            <a href="../index.html" class="page-back">← Back to Litescan</a>
+        </main>
+    </div>
+</body>
+</html>
